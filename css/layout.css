@@ -15,7 +15,6 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-snap-type: y mandatory;
 }
 
 body {
@@ -156,8 +155,6 @@ img {
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .hero__video {
@@ -222,7 +219,6 @@ img {
   padding: var(--space-section) var(--gutter);
   max-width: var(--max-width);
   margin: 0 auto;
-  scroll-snap-align: start;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -271,7 +267,6 @@ img {
   background: var(--color-bg-secondary);
   border-top: 1px solid var(--color-border);
   padding: var(--space-4xl) var(--gutter) var(--space-2xl);
-  scroll-snap-align: end;
 }
 
 .footer__inner {
@@ -397,9 +392,11 @@ img {
   /* Nav */
   .navbar__links {
     display: none;
-    position: fixed;
-    inset: 0;
+    position: absolute;
     top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(10, 10, 10, 0.97);
     backdrop-filter: blur(20px);
     flex-direction: column;
