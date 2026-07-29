@@ -224,6 +224,157 @@
     </section>
 
     <!-- ================================================================
+       THE AI TRANSFORMATION — CAROUSEL
+       ================================================================ -->
+    <hr class="section-divider" />
+    <section class="section section--centered" id="transformations">
+      <span class="section-label reveal">The AI Transformation</span>
+      <h2 class="section-heading reveal" style="text-align: center">
+        From Reference to <span class="accent">Reality</span>
+      </h2>
+      <p
+        class="section-body reveal"
+        style="
+          text-align: center;
+          margin-bottom: var(--space-3xl);
+          max-width: 640px;
+        "
+      >
+        See how a simple flat-lay image is transformed into a hyper-realistic,
+        professional photoshoot on our AI models.
+      </p>
+
+      <div class="carousel-section reveal">
+        <button
+          class="carousel-control prev"
+          id="carouselPrev"
+          aria-label="Previous Slide"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button
+          class="carousel-control next"
+          id="carouselNext"
+          aria-label="Next Slide"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+
+        <div class="carousel-container" id="transformationCarousel">
+          <!-- Slide 0: Floral Dress -->
+          <div class="carousel-slide">
+            <div class="carousel-slide-inner">
+              <div class="carousel-image-box" data-label="Reference Image">
+                <img
+                  src="assets/media/reference.webp"
+                  alt="White embroidered dress flat lay on a bed"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-image-box" data-label="AI Photoshoot">
+                <img
+                  src="assets/media/dress_model.webp"
+                  alt="AI model wearing the white embroidered dress on a beautiful beach"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 1: White Dress -->
+          <div class="carousel-slide">
+            <div class="carousel-slide-inner">
+              <div class="carousel-image-box" data-label="Reference Image">
+                <img
+                  src="assets/media/reference_white_dress.webp"
+                  alt="White embroidered dress flat lay on a bed"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-image-box" data-label="AI Photoshoot">
+                <img
+                  src="assets/media/model_white_dress.webp"
+                  alt="AI model wearing the white embroidered dress on a beautiful beach"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Blue Jumpsuit -->
+          <div class="carousel-slide">
+            <div class="carousel-slide-inner">
+              <div class="carousel-image-box" data-label="Reference Image">
+                <img
+                  src="assets/media/reference_blue_jumpsuit.webp"
+                  alt="Blue tie-dye jumpsuit flat lay on a bed"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-image-box" data-label="AI Photoshoot">
+                <img
+                  src="assets/media/model_blue_jumpsuit.webp"
+                  alt="AI model wearing the blue tie-dye jumpsuit on a beach at sunset"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Striped Dress -->
+          <div class="carousel-slide">
+            <div class="carousel-slide-inner">
+              <div class="carousel-image-box" data-label="Reference Image">
+                <img
+                  src="assets/media/reference_striped_dress.webp"
+                  alt="Striped dress reference"
+                  loading="lazy"
+                />
+              </div>
+              <div class="carousel-image-box" data-label="AI Photoshoot">
+                <img
+                  src="assets/media/model_striped_dress.webp"
+                  alt="AI model wearing a striped dress on a beach"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-nav" id="carouselNav">
+          <button
+            class="carousel-dot active"
+            aria-label="Go to slide 1"
+          ></button>
+          <button class="carousel-dot" aria-label="Go to slide 2"></button>
+          <button class="carousel-dot" aria-label="Go to slide 3"></button>
+          <button class="carousel-dot" aria-label="Go to slide 4"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
        SERVICE 3 — CATALOGING ECONOMICS
        ================================================================ -->
     <hr class="section-divider" />
@@ -628,6 +779,109 @@
             scrub: true,
           },
         });
+
+        /* ── Carousel Logic ──────────────────────── */
+        const carouselContainer = document.getElementById(
+          "transformationCarousel",
+        );
+        const carouselDots = document.querySelectorAll(".carousel-dot");
+
+        if (carouselContainer && carouselDots.length > 0) {
+          const totalSlides = carouselDots.length;
+          let currentSlideIndex = 0;
+
+          const updateButtons = () => {
+            const prevBtn = document.getElementById("carouselPrev");
+            const nextBtn = document.getElementById("carouselNext");
+            if (prevBtn && nextBtn) {
+              prevBtn.style.opacity = currentSlideIndex === 0 ? "0.3" : "1";
+              prevBtn.style.cursor =
+                currentSlideIndex === 0 ? "default" : "pointer";
+              nextBtn.style.opacity =
+                currentSlideIndex === totalSlides - 1 ? "0.3" : "1";
+              nextBtn.style.cursor =
+                currentSlideIndex === totalSlides - 1 ? "default" : "pointer";
+            }
+          };
+
+          const goToSlide = (index) => {
+            if (index < 0 || index >= totalSlides) return;
+            const slideWidth = carouselContainer.clientWidth;
+            carouselContainer.scrollTo({
+              left: index * slideWidth,
+              behavior: "smooth",
+            });
+            currentSlideIndex = index;
+            updateButtons();
+          };
+
+          carouselDots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+              goToSlide(index);
+              resetAutoplay();
+            });
+          });
+
+          carouselContainer.addEventListener("scroll", () => {
+            const slideWidth = carouselContainer.clientWidth;
+            const scrollLeft = carouselContainer.scrollLeft;
+            currentSlideIndex = Math.round(scrollLeft / slideWidth);
+
+            carouselDots.forEach((dot, i) => {
+              dot.classList.toggle("active", i === currentSlideIndex);
+            });
+            updateButtons();
+          });
+
+          // Autoplay every 5000 ms
+          let autoplayInterval;
+          const startAutoplay = () => {
+            autoplayInterval = setInterval(() => {
+              if (currentSlideIndex < totalSlides - 1) {
+                goToSlide(currentSlideIndex + 1);
+              } else {
+                clearInterval(autoplayInterval);
+              }
+            }, 5000);
+          };
+
+          const resetAutoplay = () => {
+            clearInterval(autoplayInterval);
+            if (currentSlideIndex < totalSlides - 1) {
+              startAutoplay();
+            }
+          };
+
+          const prevBtn = document.getElementById("carouselPrev");
+          const nextBtn = document.getElementById("carouselNext");
+
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener("click", () => {
+              if (currentSlideIndex > 0) {
+                goToSlide(currentSlideIndex - 1);
+                resetAutoplay();
+              }
+            });
+
+            nextBtn.addEventListener("click", () => {
+              if (currentSlideIndex < totalSlides - 1) {
+                goToSlide(currentSlideIndex + 1);
+                resetAutoplay();
+              }
+            });
+          }
+
+          // Pause on hover for better user experience
+          carouselContainer.addEventListener("mouseenter", () =>
+            clearInterval(autoplayInterval),
+          );
+          carouselContainer.addEventListener("mouseleave", () => {
+            if (currentSlideIndex < totalSlides - 1) startAutoplay();
+          });
+
+          updateButtons();
+          startAutoplay();
+        }
       });
     </script>
   </body>
