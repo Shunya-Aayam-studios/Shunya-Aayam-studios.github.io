@@ -104,6 +104,7 @@
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-sm);
   font-family: var(--font-heading);
   font-size: var(--text-small);
@@ -114,8 +115,9 @@
   background: var(--color-accent);
   border: none;
   border-radius: var(--border-radius-sm);
-  padding: var(--space-md) var(--space-xl);
+  padding: var(--space-md) var(--space-lg);
   cursor: pointer;
+  white-space: nowrap;
   transition: transform var(--duration-fast) var(--ease-spring),
     box-shadow var(--duration-normal) var(--ease-out);
 }
@@ -658,5 +660,156 @@
   .gallery-track img {
     width: 200px;
     height: 280px;
+  }
+}
+
+/* ── Pricing Grid ─────────────────────────── */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-lg);
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  text-align: left;
+  position: relative;
+}
+
+/* Make one tier "popular" or highlighted */
+.pricing-card.featured {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), transparent);
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.pricing-card.featured::before {
+  content: 'Most Popular';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.pricing-card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.pricing-card__desc {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.pricing-card__price {
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: baseline;
+}
+
+.pricing-card__price span {
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: var(--weight-normal);
+  color: var(--color-text-muted);
+  margin-left: var(--space-xs);
+}
+
+.pricing-card__features {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xl) 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.pricing-card__features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-tight);
+}
+
+.pricing-card__features li::before {
+  content: '✓';
+  color: var(--color-accent);
+  font-weight: var(--weight-bold);
+}
+
+.pricing-addons {
+  max-width: 800px;
+  margin: var(--space-3xl) auto 0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.pricing-addon {
+  text-align: center;
+}
+
+.pricing-addon h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-body-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.pricing-addon p {
+  color: var(--color-accent);
+  font-weight: var(--weight-bold);
+  font-family: var(--font-heading);
+  font-size: var(--text-h4);
+}
+
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pricing-card.featured {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
   }
 }
