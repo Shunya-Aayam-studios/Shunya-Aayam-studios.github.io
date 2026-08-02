@@ -30,6 +30,14 @@
     />
     <meta name="twitter:image" content="assets/media/og_image.jpg" />
 
+    <!-- ── Google Fonts (Inter) ────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- ── Design System CSS (order matters) ──────────── -->
     <link rel="stylesheet" href="css/design-tokens.css" />
     <link rel="stylesheet" href="css/fonts.css" />
@@ -934,11 +942,57 @@
         fees, no studio rentals.
       </p>
 
-      <div class="launch-alert reveal" style="max-width: 800px; margin: 0 auto var(--space-3xl); background: rgba(0, 240, 255, 0.05); border: 1px solid var(--color-accent); border-radius: var(--border-radius-md); padding: var(--space-md) var(--space-xl); display: flex; align-items: flex-start; gap: var(--space-md); text-align: left;">
-        <span style="font-size: 1.5rem; margin-top: 2px;">🚀</span>
+      <div
+        class="launch-alert reveal"
+        style="
+          max-width: 800px;
+          margin: 0 auto var(--space-3xl);
+          background: rgba(0, 240, 255, 0.05);
+          border: 1px solid var(--color-accent);
+          border-radius: var(--border-radius-md);
+          padding: var(--space-md) var(--space-xl);
+          display: flex;
+          align-items: flex-start;
+          gap: var(--space-md);
+          text-align: left;
+        "
+      >
+        <span style="font-size: 1.5rem; margin-top: 2px">🚀</span>
         <div>
-          <h4 style="color: var(--color-accent); font-family: var(--font-heading); font-size: var(--text-body-lg); margin-bottom: 4px; font-weight: var(--weight-bold);">Launch Special: Free Pilot Campaign</h4>
-          <p style="color: var(--color-text-secondary); font-family: var(--font-body); font-size: var(--text-small); line-height: var(--leading-relaxed);">As part of our pilot launch, we are offering a <strong>completely free apparel model shot generation</strong> so you can test our capabilities firsthand. <a href="mailto:shunyaaayam.ai@gmail.com" style="color: var(--color-text-primary); font-weight: var(--weight-bold); text-decoration: underline; text-underline-offset: 2px;">Contact us</a> to claim your pilot generation.</p>
+          <h4
+            style="
+              color: var(--color-accent);
+              font-family: var(--font-heading);
+              font-size: var(--text-body-lg);
+              margin-bottom: 4px;
+              font-weight: var(--weight-bold);
+            "
+          >
+            Launch Special: Free Pilot Campaign
+          </h4>
+          <p
+            style="
+              color: var(--color-text-secondary);
+              font-family: var(--font-body);
+              font-size: var(--text-small);
+              line-height: var(--leading-relaxed);
+            "
+          >
+            As part of our pilot launch, we are offering a
+            <strong>completely free apparel model shot generation</strong> so
+            you can test our capabilities firsthand.
+            <a
+              href="mailto:shunyaaayam.ai@gmail.com"
+              style="
+                color: var(--color-text-primary);
+                font-weight: var(--weight-bold);
+                text-decoration: underline;
+                text-underline-offset: 2px;
+              "
+              >Contact us</a
+            >
+            to claim your pilot generation.
+          </p>
         </div>
       </div>
 
@@ -946,13 +1000,15 @@
         <!-- Tier 1 -->
         <div class="glass-card pricing-card">
           <h3 class="pricing-card__title">Basic</h3>
-          <p class="pricing-card__desc">For a single, stunning result.</p>
-          <div class="pricing-card__price">₹299</div>
+          <p class="pricing-card__desc">1 Image</p>
+          <div class="pricing-card__price-wrapper">
+            <span class="price-strikethrough">₹299</span>
+            <div class="pricing-card__price">₹99</div>
+            <div class="launch-badge">Soft Launch Special</div>
+          </div>
           <ul class="pricing-card__features">
-            <li><strong>₹299</strong> per image</li>
-            <li>1 Image generated</li>
-            <li>Basic model (Single Male or Female)</li>
-            <li>3 iterations per image</li>
+            <li>Basic model (Choice of Single Male/Female)</li>
+            <li>1 standard generation + 1 minor revision</li>
           </ul>
           <button class="btn-primary" style="margin-top: auto">
             Get Started
@@ -962,14 +1018,15 @@
         <!-- Tier 2 -->
         <div class="glass-card pricing-card">
           <h3 class="pricing-card__title">Starter</h3>
-          <p class="pricing-card__desc">Ideal for small collections.</p>
-          <div class="pricing-card__price">₹999</div>
+          <p class="pricing-card__desc">4 Images</p>
+          <div class="pricing-card__price-wrapper">
+            <span class="price-strikethrough">₹999</span>
+            <div class="pricing-card__price">₹349</div>
+            <div class="launch-badge">Soft Launch Special</div>
+          </div>
           <ul class="pricing-card__features">
-            <li><strong>₹250</strong> per image</li>
-            <li>4 Images generated</li>
-            <li>Basic model (Single Male or Female)</li>
-            <li>3 iterations per image</li>
-            <li>Save ₹197 on base price</li>
+            <li>Basic model (Choice of Single Male/Female)</li>
+            <li>1 standard generation + 1 minor revision per image</li>
           </ul>
           <button class="btn-primary" style="margin-top: auto">
             Choose Starter
@@ -979,14 +1036,16 @@
         <!-- Tier 3 -->
         <div class="glass-card pricing-card featured">
           <h3 class="pricing-card__title">Pro</h3>
-          <p class="pricing-card__desc">For growing e-commerce brands.</p>
-          <div class="pricing-card__price">₹2,399</div>
+          <p class="pricing-card__desc">10 Images</p>
+          <div class="pricing-card__price-wrapper">
+            <span class="price-strikethrough">₹2,399</span>
+            <div class="pricing-card__price">₹799</div>
+            <div class="launch-badge">Soft Launch Special</div>
+          </div>
           <ul class="pricing-card__features">
-            <li><strong>₹240</strong> per image</li>
-            <li>10 Images generated</li>
-            <li>20% volume discount included</li>
-            <li>Choice from 3 premium models</li>
-            <li>Iterations until customer satisfaction</li>
+            <li>Choice from 3 Premium Models</li>
+            <li>Priority 48-hour delivery</li>
+            <li>Up to 3 revisions</li>
           </ul>
           <button class="btn-primary" style="margin-top: auto">
             Choose Pro
@@ -996,17 +1055,22 @@
         <!-- Tier 4 -->
         <div class="glass-card pricing-card">
           <h3 class="pricing-card__title">Scale</h3>
-          <p class="pricing-card__desc">For enterprise volume.</p>
-          <div class="pricing-card__price">₹10,499</div>
+          <p class="pricing-card__desc">50 Images</p>
+          <div class="pricing-card__price-wrapper">
+            <span class="price-strikethrough">₹10,499</span>
+            <div class="pricing-card__price">₹3,499</div>
+            <div class="launch-badge">Soft Launch Special</div>
+          </div>
           <ul class="pricing-card__features">
-            <li><strong>₹210</strong> per image</li>
-            <li>50 Images generated</li>
-            <li>30% volume discount included</li>
-            <li>Choice from 3 premium models</li>
-            <li>Exclusive model selection at 50% cost</li>
-            <li>Iterations until customer satisfaction</li>
+            <li>Choice from 3 Premium Models</li>
+            <li>Dedicated account manager</li>
+            <li>Exclusive model selection available at 50% cost</li>
           </ul>
-          <button class="btn-primary" style="margin-top: auto">
+          <button
+            class="btn-primary"
+            style="margin-top: auto"
+            onclick="window.location.href = 'mailto:shunyaaayam.ai@gmail.com'"
+          >
             Contact Sales
           </button>
         </div>
@@ -1016,11 +1080,13 @@
       <div class="pricing-addons reveal">
         <div class="pricing-addon">
           <h4>Exclusive Model Creation</h4>
-          <p>₹1,499</p>
+          <span class="price-strikethrough">₹1,499</span>
+          <p>₹999</p>
         </div>
         <div class="pricing-addon">
           <h4>Mannequin Shots</h4>
-          <p>₹149 <span>/ image</span></p>
+          <span class="price-strikethrough">₹149</span>
+          <p>₹49 <span>/ image</span></p>
         </div>
       </div>
     </section>

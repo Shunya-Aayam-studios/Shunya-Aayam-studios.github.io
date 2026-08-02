@@ -30,7 +30,7 @@
 
   /* ── Typography Scale (clamp for fluid sizing) ──── */
   --font-heading:          'Space Grotesk', system-ui, sans-serif;
-  --font-body:             'Roboto', system-ui, sans-serif;
+  --font-body:             'Inter', system-ui, sans-serif;
 
   --text-hero:             clamp(3rem,   8vw,  7.5rem);
   --text-hero-sub:         clamp(1.1rem, 2.5vw, 1.75rem);
