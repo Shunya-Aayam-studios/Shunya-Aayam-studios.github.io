@@ -19,6 +19,7 @@
   border-radius: 100px;
   background: var(--color-accent-dim);
   margin-bottom: var(--space-lg);
+  width: fit-content;
 }
 
 .section-label::before {
@@ -399,8 +400,8 @@
   background: rgba(255, 255, 255, 0.05);
   color: var(--color-text-secondary);
   transition: color var(--duration-fast) var(--ease-out),
-              background var(--duration-fast) var(--ease-out),
-              transform var(--duration-fast) var(--ease-out);
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
 }
 
 .team-card__socials a:hover {
@@ -431,6 +432,7 @@
     height: 60vh;
   }
 }
+
 /* ── Transformation Carousel ───────────────── */
 .carousel-section {
   position: relative;
@@ -482,7 +484,8 @@
 
 @media (max-width: 768px) {
   .carousel-control {
-    display: none; /* Hide buttons on mobile, rely on swipe/dots */
+    display: none;
+    /* Hide buttons on mobile, rely on swipe/dots */
   }
 }
 
@@ -494,11 +497,13 @@
   gap: var(--space-xl);
   padding: var(--space-md) 0;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 .carousel-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
+  /* Chrome, Safari */
 }
 
 .carousel-slide {
@@ -580,6 +585,7 @@
   .carousel-slide-inner {
     flex-direction: column;
   }
+
   .carousel-image-box img {
     height: 40vh;
   }
@@ -644,19 +650,30 @@
 }
 
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 8px)); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 8px));
+  }
 }
 
 @keyframes scroll-right {
-  0% { transform: translateX(calc(-50% - 8px)); }
-  100% { transform: translateX(0); }
+  0% {
+    transform: translateX(calc(-50% - 8px));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 768px) {
   .infinite-gallery-wrapper {
     transform: rotate(-8deg);
   }
+
   .gallery-track img {
     width: 200px;
     height: 280px;
@@ -842,6 +859,7 @@
   .pricing-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .pricing-card.featured {
     transform: none;
   }

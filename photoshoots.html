@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photoshoots — Shunya Aayam Studios</title>
+    <meta
+      name="description"
+      content="Explore our versatile AI-generated photoshoots. From high-end editorial to authentic UGC and gritty low-lighting aesthetics — zero samples, infinite fits."
+    />
+
+    <!-- ── SEO & Metadata ── -->
+    <link rel="icon" type="image/png" href="assets/media/logo.png" />
+    <meta property="og:title" content="Photoshoots — Shunya Aayam Studios" />
+    <meta
+      property="og:description"
+      content="Explore our versatile AI-generated photoshoots. From high-end editorial to authentic UGC and gritty low-lighting aesthetics."
+    />
+    <meta property="og:image" content="assets/media/og_image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Shunya Aayam Studios" />
+
+    <!-- ── Google Fonts (Inter) ────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ── Design System CSS ──────────── -->
+    <link rel="stylesheet" href="css/design-tokens.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+
+    <!-- ── Tailwind CDN (utility helpers only) ─────── -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { corePlugins: { preflight: false } };
+    </script>
+
+    <!-- ── GSAP + ScrollTrigger ────────────────────── -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+
+    <style>
+      /* Page-specific adjustments */
+      .hero--secondary {
+        min-height: 70vh;
+        background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero--secondary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("assets/media/fashion_blue.png") center/cover no-repeat;
+        opacity: 0.15;
+        filter: blur(8px);
+      }
+      .showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--space-xl);
+        margin-top: var(--space-2xl);
+      }
+      .showcase-grid.ugc-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      }
+      .style-tag {
+        position: absolute;
+        bottom: var(--space-md);
+        left: var(--space-md);
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        padding: 4px 12px;
+        border-radius: var(--border-radius-sm);
+        font-size: var(--text-small);
+        color: var(--color-text-primary);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================================================================
+       NAVBAR
+       ================================================================ -->
+    <nav class="navbar" id="navbar">
+      <a href="index.html" class="navbar__logo"
+        >Shunya Aayam<span class="accent-dot">.</span></a
+      >
+
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="index.html#avatars">Avatars</a></li>
+        <li>
+          <a
+            href="photoshoots.html"
+            class="active"
+            style="color: var(--color-accent)"
+            >Photoshoots</a
+          >
+        </li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#transformations">Transformations</a></li>
+        <li><a href="index.html#cataloging">Cataloging</a></li>
+        <li><a href="index.html#social">Social</a></li>
+        <li><a href="index.html#pricing">Pricing</a></li>
+        <li>
+          <a href="mailto:shunyaaayam.ai@gmail.com" class="navbar__cta"
+            >Get In Touch</a
+          >
+        </li>
+      </ul>
+
+      <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- ================================================================
+       HERO SECTION
+       ================================================================ -->
+    <section class="hero--secondary" id="hero">
+      <div class="hero__content" style="z-index: 2; position: relative">
+        <span
+          class="section-label reveal"
+          id="heroLabel"
+          style="margin: 0 auto 1rem"
+          >Endless Possibilities</span
+        >
+        <h1
+          class="hero__title reveal"
+          id="heroTitle"
+          style="font-size: clamp(3rem, 6vw, 5rem)"
+        >
+          Any Vibe.<br />Any Setting.
+        </h1>
+        <p
+          class="section-body reveal"
+          id="heroSubtitle"
+          style="text-align: center; max-width: 600px; margin: 1rem auto 0"
+        >
+          From high-end editorial campaigns to authentic, gritty mirror selfies.
+          We synthesize the perfect mood for your apparel.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================================================================
+       HIGH-END EDITORIAL
+       ================================================================ -->
+    <section class="section" id="high-end">
+      <span class="section-label reveal">High-End Editorial</span>
+      <h2 class="section-heading reveal">
+        Studio <span class="accent">Perfection</span>
+      </h2>
+      <p
+        class="section-body reveal"
+        style="max-width: 700px; margin-bottom: var(--space-2xl)"
+      >
+        Impeccable lighting, sharp details, and power poses. Perfect for your
+        main website banners, lookbooks, and luxury positioning.
+      </p>
+
+      <div class="showcase-grid">
+        <div class="img-frame reveal">
+          <img
+            src="assets/media/model_shots/photos12.png"
+            alt="High-end editorial in blue"
+            loading="lazy"
+          />
+          <div class="style-tag">Editorial Lookbook</div>
+        </div>
+        <div class="img-frame reveal">
+          <img
+            src="assets/media/dress_model.webp"
+            alt="Sharp tailored suit"
+            loading="lazy"
+          />
+          <div class="style-tag">Studio Lighting</div>
+        </div>
+        <div class="img-frame reveal">
+          <img
+            src="assets/media/model_blue_jumpsuit.webp"
+            alt="Ethereal white gown"
+            loading="lazy"
+          />
+          <div class="style-tag">Location Shoot</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ================================================================
+       AMATEUR & LOW LIGHTING
+       ================================================================ -->
+    <section class="section" id="gritty-authentic">
+      <div class="two-col">
+        <div class="two-col__text">
+          <span class="section-label reveal">Gritty & Authentic</span>
+          <h2 class="section-heading reveal">
+            The <span class="accent">Underground</span> Aesthetic
+          </h2>
+          <p class="section-body reveal">
+            Sometimes perfect isn't what sells. We can generate hyper-realistic
+            "amateur" photography — complete with motion blur, harsh flash,
+            low-light grain, and candid compositions. Ideal for streetwear drops
+            and edgy campaigns.
+          </p>
+        </div>
+
+        <div class="two-col__media">
+          <div class="showcase-grid" style="margin-top: 0">
+            <!-- Placeholder for User Generated Images -->
+            <div class="img-frame reveal">
+              <img
+                src="assets/media/amateur_low_light_1.png"
+                alt="Amateur flash photography style"
+                loading="lazy"
+                onerror="this.src = 'assets/media/fashion_casual.png'"
+              />
+              <div class="style-tag">Harsh Flash / 35mm</div>
+            </div>
+            <div class="img-frame reveal">
+              <img
+                src="assets/media/amateur_low_light_2.png"
+                alt="Low light gritty street style"
+                loading="lazy"
+                onerror="this.src = 'assets/media/model_shots/photos14.png'"
+              />
+              <div class="style-tag">Low-Light Street</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- ================================================================
+       UGC & SOCIAL CONTENT
+       ================================================================ -->
+    <section class="section" id="ugc-social">
+      <span class="section-label reveal">Social-Ready</span>
+      <h2 class="section-heading reveal">
+        User Generated <span class="accent">Illusion</span>
+      </h2>
+      <p
+        class="section-body reveal"
+        style="max-width: 700px; margin-bottom: var(--space-2xl)"
+      >
+        Generate the content that drives modern commerce: mirror selfies,
+        "outfit of the day" candids, and phone-shot aesthetics. Build trust with
+        imagery that feels relatable and native to social feeds.
+      </p>
+
+      <div class="showcase-grid ugc-grid">
+        <div class="img-frame reveal">
+          <img
+            src="assets/media/ugc_mirror_selfie.png"
+            alt="Mirror selfie UGC style"
+            loading="lazy"
+            onerror="this.src = 'assets/media/instagram_mockup.png'"
+          />
+          <div class="style-tag">Mirror Selfie</div>
+        </div>
+        <div class="img-frame reveal">
+          <img
+            src="assets/media/ugc_candid_street.png"
+            alt="Candid street OOTD"
+            loading="lazy"
+            onerror="this.src = 'assets/media/instagram_mockup2.png'"
+          />
+          <div class="style-tag">Candid OOTD</div>
+        </div>
+        <div class="img-frame reveal">
+          <img
+            src="assets/media/ugc_cafe_lifestyle.png"
+            alt="Cafe lifestyle shot"
+            loading="lazy"
+            onerror="this.src = 'assets/media/model_shots/photos4.png'"
+          />
+          <div class="style-tag">Lifestyle / Cafe</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================
+       FOOTER
+       ================================================================ -->
+    <footer class="footer" id="footer" style="margin-top: var(--space-4xl)">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo"
+            >Shunya Aayam<span style="color: var(--color-accent)">.</span></span
+          >
+          <p class="footer__tagline">
+            AI-powered fashion modeling. Zero samples. Infinite creative
+            freedom. Built for the brands that move fast.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contact</h4>
+          <ul>
+            <li>
+              <a href="mailto:shunyaaayam.ai@gmail.com"
+                >shunyaaayam.ai@gmail.com</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="index.html#avatars">AI Avatars</a></li>
+            <li><a href="photoshoots.html">Photoshoots</a></li>
+            <li><a href="index.html#gallery">Gallery</a></li>
+            <li><a href="index.html#transformations">Transformations</a></li>
+            <li><a href="index.html#cataloging">Cataloging</a></li>
+            <li><a href="index.html#social">Social Content</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+            <li><a href="terms-of-use.html">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span class="footer__copyright"
+          >© 2026 Shunya Aayam Studios. All rights reserved.</span
+        >
+        <div class="footer__socials">
+          <a
+            href="https://www.instagram.com/shunya.aayam.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow us on Instagram"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="5" />
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1.5"
+                fill="currentColor"
+                stroke="none"
+              />
+            </svg>
+          </a>
+          <a href="mailto:shunyaaayam.ai@gmail.com" aria-label="Email us">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <polyline points="22,4 12,13 2,4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================================================================
+       JAVASCRIPT
+       ================================================================ -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        /* ── Navbar scroll state ────────────────────── */
+        const navbar = document.getElementById("navbar");
+        const handleNavScroll = () => {
+          navbar.classList.toggle("scrolled", window.scrollY > 60);
+        };
+        window.addEventListener("scroll", handleNavScroll, { passive: true });
+        handleNavScroll(); // init
+
+        /* ── Mobile hamburger ──────────────────────── */
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.getElementById("navLinks");
+
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navLinks.classList.toggle("open");
+          document.body.style.overflow = navLinks.classList.contains("open")
+            ? "hidden"
+            : "";
+        });
+
+        /* ── GSAP ScrollTrigger Reveals ────────────── */
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero entrance
+        gsap.fromTo(
+          "#heroLabel",
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.1 },
+        );
+        gsap.fromTo(
+          "#heroTitle",
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 1.2, ease: "power3.out", delay: 0.3 },
+        );
+        gsap.fromTo(
+          "#heroSubtitle",
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.5 },
+        );
+
+        // All .reveal elements
+        const reveals = gsap.utils.toArray(
+          ".reveal:not(#heroTitle):not(#heroSubtitle):not(#heroLabel)",
+        );
+
+        reveals.forEach((el) => {
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.9,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: el,
+                start: "top 88%",
+                end: "top 60%",
+                toggleActions: "play none none none",
+              },
+            },
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
